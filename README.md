@@ -110,6 +110,7 @@ pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
 - [x] Remove deprecated packakge: `@intlify/vite-plugin-vue-i18n`.
 - [x] Replace deprecated packakge: `vite-plugin-components` by `unplugin-vue-components`.
 - [x] Replace deprecated packakge: `vite-plugin-icons` by `unplugin-icons`.
+- [x] Replace WindiCSS/TailWindCSS by UnoCSS.
 - [x] Fix various bugs.
 
 ## Usage
