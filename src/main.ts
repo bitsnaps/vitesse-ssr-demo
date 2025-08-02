@@ -1,4 +1,4 @@
-import 'windi.css'
+import 'uno.css'
 import './styles/main.css'
 import viteSSR, { ClientOnly } from 'vite-ssr'
 import { createHead } from '@vueuse/head'
@@ -22,11 +22,9 @@ export default viteSSR(
   },
   async (ctx) => {
     // install all modules under `modules/`
-    if (import.meta.globEager){
-      Object.values(import.meta.globEager('./modules/*.ts')).map((i: any) =>
-        i.install?.(ctx)
-      )
-    }
+    Object.values(import.meta.glob('./modules/*.ts', { eager: true })).map((i: any) =>
+      i.install?.(ctx),
+    )
 
     const { app, url, router, isClient, initialState, initialRoute } = ctx
 
@@ -48,11 +46,9 @@ export default viteSSR(
     }
 
     // As an example, make a getPageProps request before each route navigation
-    router.beforeEach(async (to, from, next) => {
-      if (!!to.meta.state && (!import.meta.env.DEV || import.meta.env.SSR)) {
-        // This route has state already (from server) so it can be reused.
+    router.beforeEach(async (to: any, from: any, next: any) => {
+      if (to.meta.state)
         return next()
-      }
 
       // `isClient` here is a handy way to determine if it's SSR or not.
       // However, it is a runtime variable so it won't be tree-shaked.
@@ -72,19 +68,20 @@ export default viteSSR(
         // Get our page props from our custom API:
         const res = await fetch(
           `${baseUrl}/api/get-page-props?path=${encodeURIComponent(
-            to.path
-          )}&name=${to.name}&client=${isClient}`,
+            to.path,
+          )}&name=${String(to.name)}&client=${isClient}`,
           {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
-          }
+          },
         )
 
         // During SSR, this is the same as modifying initialState
         to.meta.state = await res.json()
-      } catch (error) {
+      }
+      catch (error) {
         console.error(error)
         // redirect to error route conditionally
       }

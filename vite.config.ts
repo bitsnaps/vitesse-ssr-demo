@@ -8,7 +8,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import Markdown from 'vite-plugin-md'
-import WindiCSS from 'vite-plugin-windicss'
+import UnoCSS from 'unocss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Prism from 'markdown-it-prism'
@@ -76,10 +76,8 @@ export default defineConfig({
       autoInstall: true,
     }),
 
-    // https://github.com/antfu/vite-plugin-windicss
-    WindiCSS({
-      safelist: 'prose prose-sm m-auto',
-    }),
+    // https://github.com/unocss/unocss
+    UnoCSS(),
 
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({

@@ -47,8 +47,7 @@
     "vite-plugin-md": "^0.21.5",
     "vite-plugin-pages": "^0.33.1",
     "vite-plugin-pwa": "^1.0.2",
-    "vite-plugin-vue-layouts": "^0.11.0",
-    "vite-plugin-windicss": "^1.9.3"
+    "vite-plugin-vue-layouts": "^0.11.0"
   },
   "eslintConfig": {
     "extends": "@antfu/eslint-config",
