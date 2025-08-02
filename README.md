@@ -104,18 +104,13 @@ cd my-vitesse-app
 pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
 ```
 
-## Checklist
+## Updates
 
-When you use this template, try follow the checklist to update your info properly
-
-- [ ] Add a `name` field in `package.json`
-- [ ] Change the author name in `LICENSE`
-- [ ] Change the title in `App.vue`
-- [ ] Change the favicon in `public`
-- [ ] Remove the `.github` folder which contains the funding info
-- [ ] Clean up the READMEs and remove routes
-
-And, enjoy :)
+- [x] Update deps.
+- [x] Remove deprecated packakge: `@intlify/vite-plugin-vue-i18n`.
+- [x] Replace deprecated packakge: `vite-plugin-components` by `unplugin-vue-components`.
+- [x] Replace deprecated packakge: `vite-plugin-icons` by `unplugin-icons`.
+- [x] Fix various bugs.
 
 ## Usage
 

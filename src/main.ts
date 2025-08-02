@@ -22,9 +22,11 @@ export default viteSSR(
   },
   async (ctx) => {
     // install all modules under `modules/`
-    Object.values(import.meta.globEager('./modules/*.ts')).map((i) =>
-      i.install?.(ctx)
-    )
+    if (import.meta.globEager){
+      Object.values(import.meta.globEager('./modules/*.ts')).map((i: any) =>
+        i.install?.(ctx)
+      )
+    }
 
     const { app, url, router, isClient, initialState, initialRoute } = ctx
 
